@@ -1,60 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>JSX Demo Timer</title>
-  <meta charset="utf-8" />
-</head>
-<body>
-  <div id="root"></div>
-
-  <script src="react/react.js"></script>
-  <script src="react/react-dom.js"></script>
-  <script src="react/babel.js"></script>
-  <script type="text/babel">
-
-    function Counter({ start }) {
-        const [counter, setCounter] = React.useState(start);
-
-	React.useEffect(() => {
-            const tickTock = () => {
-		setCounter((value) => value + 1);
-            }
-	    
-            const timer = setInterval(tickTock, 1000);
-
-	    return () => {
-		clearInterval(timer);
-	    };
-
-	}, []);  // [] tells it to only run once
-	    
-        return (
-	   <main>
-	      <p>Counter: {counter}</p>
-		<button onClick={() => setCounter(0)}>
-	          Reset
-              </button>
-	   </main>
-	);
-    }
-
-    function App() {
-      return (
-        <div>
-          <Counter start={0} />
-          <Counter start={123} />
-          <Counter start={-64} />
-        </div>
-      );
-    }
-
-    ReactDOM.render(
-	    <React.StrictMode>
-            <App />
-	    </React.StrictMode>,
-	document.getElementById("root")
-    );
-
-  </script>
-</body>
+  <head>
+    <title>JSX Demo Timer</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="react/react.js"></script>
+    <script src="react/react-dom.js"></script>
+    <script src="react/babel.js"></script>
+    <script type="text/babel" src="./src/main.jsx"></script>
+  </body>
 </html>
