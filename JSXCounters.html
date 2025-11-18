@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>JSX Demo Counter</title>
-  <meta charset="utf-8" />
-</head>
-<body>
-  <div id="root"></div>
+  <head>
+    <title>JSX Demo Counter</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./src/style/main.css" />
+  </head>
+  <body>
+    <div id="root"></div>
 
-  <script src="react/react.js"></script>
-  <script src="react/react-dom.js"></script>
-  <script src="react/babel.js"></script>
-  <script type="text/babel">
+    <script src="react/react.js"></script>
+    <script src="react/react-dom.js"></script>
+    <script src="react/babel.js"></script>
+    <script type="text/babel">
+      function Counter({ start }) {
+        const [counter, setCounter] = React.useState(start);
+        return (
+          <main>
+            <p>Counter: {counter}</p>
+            <button onClick={() => setCounter((value) => value + 1)}>
+              Increment
+            </button>
+          </main>
+        );
+      }
 
-    function Counter({ start }) {
-      const [counter, setCounter] = React.useState(start);
-      return (
-        <main>
-          <p>Counter: {counter}</p>
-          <button onClick={() => setCounter((value) => value + 1)}>
-            Increment
-          </button>
-        </main>
+      function App() {
+        return (
+          <div>
+            <Counter start={0} />
+            <Counter start={123} />
+            <Counter start={-64} />
+          </div>
+        );
+      }
+
+      const root = ReactDOM.render(<App />, document.getElementById("root"));
+
+      root.render(
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
       );
-    }
-
-    function App() {
-      return (
-        <div>
-          <Counter start={0} />
-          <Counter start={123} />
-          <Counter start={-64} />
-        </div>
-      );
-    }
-
-    const root = ReactDOM.render(<App />, document.getElementById("root"));
-
-    root.render(
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    );
-
-  </script>
-</body>
+    </script>
+  </body>
 </html>

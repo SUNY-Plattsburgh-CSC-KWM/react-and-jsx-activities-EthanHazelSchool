@@ -1,0 +1,38 @@
+body {
+  font-family: sans-serif;
+  background-color: #121212;
+  color: white;
+}
+
+input[type="text"],
+input[type="number"] {
+  background-color: #121212;
+  border: 1px solid gray;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: white;
+}
+
+button,
+input[type="button"] {
+  background-color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: #121212;
+}
+
+.timer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  font-family: monospace;
+}
+
+.maker {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}

@@ -39,41 +39,67 @@ function Timer({ start = 100, increment = 1000, name = "Timer" }) {
   }, []);
 
   return (
-    <main>
-      <p>
-        {name}: {counter <= 0 ? "DING DING DING DONE" : counter}
-      </p>
+    <div className="timer">
+      <h3>{name}:</h3>
+      <p>{counter <= 0 ? "DING DING DING DONE" : counter}</p>
       <button onClick={() => setCounter(start)}>Reset</button>
-    </main>
+    </div>
   );
 }
 
 function Timers() {
-  const [timers, setTimers] = React.useState([
-    { name: "test", start: 10, increment: 1000 },
-  ]);
+  const [timers, setTimers] = React.useState([]);
 
-  function addTimer(n, s, i) {
-    let newTimers = timers;
-    newTimers.push({ name: n, start: s, increment: i });
-    setTimers(newTimers);
-    console.log(timers);
+  function addTimer(n, s, i, id) {
+    setTimers((prev) => [...prev, { id: id, name: n, start: s, increment: i }]);
   }
 
   function TimerMaker() {
+    const timerName = React.useRef(null);
+    const timerDuration = React.useRef(null);
+    const timerIncrement = React.useRef(null);
+
     return (
-      <button
-        onClick={() => {
-          addTimer("test", 10, 1000);
-        }}
-      >
-        Make Test Timer
-      </button>
+      <div className="maker">
+        <input
+          type="text"
+          name="timer-name"
+          id="timer-name"
+          placeholder="Name"
+          ref={timerName}
+        />
+        <input
+          type="number"
+          name="timer-duration"
+          id="timer-duration"
+          placeholder="Duration"
+          ref={timerDuration}
+        />
+        <input
+          type="number"
+          name="timer-increment"
+          id="timer-increment"
+          placeholder="Increment (ms)"
+          ref={timerIncrement}
+        />
+        <button
+          onClick={() => {
+            addTimer(
+              timerName.current.value || "Unnamed",
+              timerDuration.current.value || 10,
+              timerIncrement.current.value || 1000
+            );
+          }}
+        >
+          Add Timer
+        </button>
+      </div>
     );
   }
 
   return (
     <div>
+      <TimerMaker />
       {timers.map((timer, index) => (
         // fix this not updating with the variable
         <Timer
@@ -81,10 +107,9 @@ function Timers() {
           start={timer.start}
           name={timer.name}
           increment={timer.increment}
+          timerId={timer.id}
         />
       ))}
-      <hr />
-      <TimerMaker />
     </div>
   );
 }
@@ -92,10 +117,7 @@ function Timers() {
 function App() {
   return (
     <div>
-      <h2>Counters</h2>
-      <Counter />
-      <Counter increment={1} name="Millisecond counter" />
-      <h2>Timers</h2>
+      <h1>Enterprise level timer app</h1>
       <Timers />
     </div>
   );
