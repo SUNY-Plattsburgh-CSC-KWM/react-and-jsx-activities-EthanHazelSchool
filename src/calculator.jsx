@@ -29,6 +29,7 @@ function App() {
         This calculator sucks but I didn't want to implement a number pad or
         anything
       </p>
+      <p>Invalid numbers will be treated as 0</p>
       <div className="calc">
         <input
           type="number"
@@ -52,8 +53,12 @@ function App() {
         />
         <button onClick={() => Calculate()}>=</button>
       </div>
-      <p>Invalid numbers will be treated as 0</p>
       <p className="answer">{answer}</p>
+      <img
+        src="https://www.hoary.org/now/mn/ns-best.gif"
+        class="i031088"
+        alt="Netscape"
+      />
     </React.Fragment>
   );
 }

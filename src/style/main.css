@@ -1,5 +1,10 @@
+@font-face {
+  font-family: "Saturn";
+  src: url("font.ttf") format("truetype");
+}
+
 body {
-  font-family: sans-serif;
+  font-family: "Saturn", sans-serif;
   background-color: #121212;
   color: white;
   display: flex;
@@ -12,6 +17,14 @@ body {
   text-align: center;
 }
 
+h1 {
+  font-size: 5rem;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
 input[type="text"],
 input[type="number"],
 select {
@@ -20,6 +33,12 @@ select {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   color: white;
+  font-family: "Saturn", monospace;
+  font-size: 2rem;
+}
+
+option {
+  font-family: "Saturn", monospace;
 }
 
 button,
@@ -29,6 +48,8 @@ input[type="button"] {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   color: #121212;
+  font-family: "Saturn", monospace;
+  font-size: 2rem;
 }
 
 .timer {
@@ -36,7 +57,7 @@ input[type="button"] {
   flex-direction: row;
   gap: 1rem;
   align-items: center;
-  font-family: monospace;
+  font-size: 2rem;
 }
 
 .maker {
@@ -56,5 +77,4 @@ input[type="button"] {
 
 .answer {
   font-size: 4rem;
-  font-family: monospace;
 }

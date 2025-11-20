@@ -118,6 +118,11 @@ function App() {
   return (
     <div>
       <h1>Enterprise level timer app</h1>
+      <img
+        src="https://www.hoary.org/now/mn/ns-best.gif"
+        class="i031088"
+        alt="Netscape"
+      />
       <Timers />
     </div>
   );
