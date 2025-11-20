@@ -2,10 +2,19 @@ body {
   font-family: sans-serif;
   background-color: #121212;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
 }
 
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+select {
   background-color: #121212;
   border: 1px solid gray;
   padding: 0.5rem 1rem;
@@ -35,4 +44,17 @@ input[type="button"] {
   flex-direction: row;
   gap: 1rem;
   align-items: center;
+}
+
+.calc {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.answer {
+  font-size: 4rem;
+  font-family: monospace;
 }
